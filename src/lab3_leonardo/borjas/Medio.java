@@ -54,7 +54,7 @@ public class Medio extends Jugador{
 
     @Override
     public String toString() {
-        return super.toString()+"Medio{" + "nivel_creatividad=" + nivel_creatividad + ", nivel_dominio=" + nivel_dominio + ", promedio_asist=" + promedio_asist + '}';
+        return super.toString()+"\nposicion=Medio" + "\nnivel_creatividad=" + nivel_creatividad + "\nnivel_dominio=" + nivel_dominio + "\npromedio_asist=" + promedio_asist+"\n";
     }
     
     

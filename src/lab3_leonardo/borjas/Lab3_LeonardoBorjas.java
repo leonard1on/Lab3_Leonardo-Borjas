@@ -23,7 +23,7 @@ public class Lab3_LeonardoBorjas {
         int menu = 0;
         int menu2 = 0;
         int salida = 0;
-        int numero=0;
+        int numero = 0;
         ArrayList<Jugador> general = new ArrayList();
         ArrayList<Equipo> equipo = new ArrayList();
         do {
@@ -164,11 +164,6 @@ public class Lab3_LeonardoBorjas {
                                         general.get(espacio).setEdad(edad);
                                         general.get(espacio).setPais(pais);
                                         general.get(espacio).setPie_prefe(pie);
-                                        general.get(espacio).
-                                        general.get(espacio).setNombre(nombre);
-                                        general.get(espacio).setNombre(nombre);
-                                        general.get(espacio).setNombre(nombre);
-                                        general.get(espacio).setNombre(nombre);
 
                                     }
                                     if (general.get(espacio) instanceof Medio) {
@@ -231,6 +226,21 @@ public class Lab3_LeonardoBorjas {
 
                                 break;
                             case 2:
+                                for (Equipo t : equipo) {
+                                    System.out.println("Equipo " + equipo.indexOf(t) + " " + t);
+                                    for (int i = 0; i < t.getJugadores().size(); i++) {
+                                        System.out.println(t.getJugadores().get(i));
+                                    }
+
+                                }
+                                System.out.println("Que equipo desea organizar?");
+                                int n = sc.nextInt();
+                                if (n < equipo.size()) {
+
+                                    if (equipo.get(n).getJugadores().size() < 11) {
+                                        System.out.println("no hay suficientes jugadores");
+                                    }
+                                }
                                 break;
                             case 3:
                                 System.out.println("Que equipo desea eliminar?");
@@ -245,9 +255,12 @@ public class Lab3_LeonardoBorjas {
                             case 4:
                                 for (Equipo t : equipo) {
                                     System.out.println("Equipo " + equipo.indexOf(t) + " " + t);
-                                    System.out.println(t.getJugadores()+"\n");
+                                    for (int i = 0; i < t.getJugadores().size(); i++) {
+                                        System.out.println(t.getJugadores().get(i));
+                                    }
+
                                 }
-                                
+
                                 break;
                             case 5:
                                 System.out.println("Que equipo desea modificar?");
@@ -285,13 +298,17 @@ public class Lab3_LeonardoBorjas {
                     int resp = sc.nextInt();
                     System.out.println("Que jugador desea comprar?");
                     for (Jugador t : general) {
+
                         System.out.println("Jugador " + general.indexOf(t) + " " + t);
                     }
                     int resp2 = sc.nextInt();
                     if (resp < equipo.size() && resp2 < general.size()) {
+
                         equipo.get(resp).getJugadores().add(general.get(resp2));
                         general.get(resp2).setNumero(numero);
                         numero++;
+                        equipo.get(resp).setPresupuesto(equipo.get(resp).getPresupuesto() - general.get(resp2).getPrecio());
+
                     }
                     break;
                 case 4:
