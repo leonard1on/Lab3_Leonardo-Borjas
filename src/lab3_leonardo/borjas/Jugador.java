@@ -107,8 +107,11 @@ public class Jugador {
 
     @Override
     public String toString() {
-        return "Jugador{" + "nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", estado=" + estado + ", pais=" + pais + ", pie_prefe=" + pie_prefe + ", numero=" + numero + ", precio=" + precio + ", e=" + e + '}';
+    if(estado){    
+        return "Jugador{" + "nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", estado=" + "comprado" + ", pais=" + pais + ", pie_prefe=" + pie_prefe + ", numero=" + numero + ", precio=" + precio + ", e=" + e + '}';
+    }else{
+        return "Jugador{" + "nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", estado=" + "libre" + ", pais=" + pais + ", pie_prefe=" + pie_prefe + ", numero=" + numero + ", precio=" + precio + ", e=" + e + '}';
     }
-    
+    }
     
 }
