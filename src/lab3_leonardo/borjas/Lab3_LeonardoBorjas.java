@@ -120,6 +120,7 @@ public class Lab3_LeonardoBorjas {
                                 } while (menu3!=1 && menu3!=2 && menu3!=3 && menu3!=4);
                                 break;
                             case 2:
+                                
                                 break;
                             case 3:
                                 System.out.println("Que numero de jugador desea eliminar\n");
@@ -127,7 +128,9 @@ public class Lab3_LeonardoBorjas {
                                     System.out.println("Jugador "+general.indexOf(t)+" "+t);
                                 }
                                 int espacio=sc.nextInt();
+                                if(espacio<general.size()){
                                 general.remove(espacio);
+                                }
                                 break;
                             case 4:
                                 for (Jugador t : general) {
@@ -146,8 +149,10 @@ public class Lab3_LeonardoBorjas {
                     System.out.println("Que desea hacer?\n"
                             + "1. Crear equipo\n"
                             + "2. Organizar equipo\n"
-                            + "3. listar equipos\n"
-                            + "4. volver a menu principal");
+                            + "3. Eliminar equipo\n"
+                            + "4. Listar equipos\n"
+                            + "5. Modificar Equipo\n"
+                            + "6. Volver al menu principal");
                     menu4=sc.nextInt();
                     switch(menu4){
                         case 1:
@@ -166,13 +171,49 @@ public class Lab3_LeonardoBorjas {
                         case 2:
                             break;
                         case 3:
+                            System.out.println("Que equipo desea eliminar?");
+                            for (Equipo t : equipo) {
+                                System.out.println("Equipo "+equipo.indexOf(t)+" "+t);
+                            }
+                            int espacio=sc.nextInt();
+                            if(espacio<equipo.size()){
+                                equipo.remove(espacio);
+                            }
+                            break;
+                        case 4:
+                            for (Equipo t : equipo) {
+                                System.out.println("Equipo "+equipo.indexOf(t)+" "+t);
+                            }
+                            break;
+                        case 5:
+                            System.out.println("Que equipo desea modificar?");
+                            for (Equipo t : equipo) {
+                                System.out.println("Equipo "+equipo.indexOf(t)+" "+t);
+                            }
+                            espacio=sc.nextInt();
+                            if(espacio<equipo.size()){
+                            System.out.println("Cual es el nombre del equipo?");
+                            nombre=sc.next();
+                            System.out.println("Cuantos palmares tiene?");
+                            palmares=sc.nextInt();
+                            System.out.println("En que ciudad esta el equipo?");
+                            ciudad=sc.next();
+                            System.out.println("Cual es el presupuesto del equipo?");
+                            presupuesto=sc.nextDouble();
+                            
+                            equipo.get(espacio).setNombre(nombre);
+                            equipo.get(espacio).setPalmares(palmares);
+                            equipo.get(espacio).setCiudad(ciudad);
+                            equipo.get(espacio).setPresupuesto(presupuesto);
+                            }
                             break;
                         default:
                             break;
                     }
-                    }while(menu4!=4);
+                    }while(menu4!=6);
                     break;
                 case 3:
+                    System.out.println("Vamos de Compras!!\n");
                     break;
                 case 4:
                     break;

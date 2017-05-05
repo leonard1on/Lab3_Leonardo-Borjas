@@ -13,7 +13,7 @@ public class Jugador {
     private String nombre;
     private String apellido;
     private int edad;
-    private Boolean estado;
+    private Boolean estado=false;
     private String pais;
     private String pie_prefe;
     private int numero;
