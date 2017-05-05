@@ -244,7 +244,6 @@ public class Lab3_LeonardoBorjas {
                             case 4:
                                 for (Equipo t : equipo) {
                                     System.out.println("Equipo " + equipo.indexOf(t) + " " + t);
-                                    System.out.println("");
                                     for (int i = 0; i < t.getJugadores().size(); i++) {
                                         System.out.println(t.getJugadores().get(i));
                                     }
