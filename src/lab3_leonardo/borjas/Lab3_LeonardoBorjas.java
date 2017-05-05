@@ -149,33 +149,11 @@ public class Lab3_LeonardoBorjas {
                                     } while (salida != 0);
                                     System.out.println("Cual es el precio del Jugador");
                                     precio = sc.nextDouble();
-                                    if (general.get(espacio) instanceof Delantero) {
-                                        System.out.println("Cual es el nivel de definicion del jugador?");
-                                        double nivel_definicion = sc.nextDouble();
-                                        System.out.println("Cual es la altura del jugador?");
-                                        double altura = sc.nextDouble();
-                                        System.out.println("Cual es la velocidad del jugador?");
-                                        double velocidad = sc.nextDouble();
-                                        System.out.println("Cual es el promedio de goles del jugador?");
-                                        double promedio_goles = sc.nextDouble();
 
-                                        general.get(espacio).setNombre(nombre);
-                                        general.get(espacio).setApellido(apellido);
-                                        general.get(espacio).setEdad(edad);
-                                        general.get(espacio).setPais(pais);
-                                        general.get(espacio).setPie_prefe(pie);
-
-                                    }
-                                    if (general.get(espacio) instanceof Medio) {
-
-                                    }
-                                    if (general.get(espacio) instanceof Defensa) {
-
-                                    }
-
-                                    if (general.get(espacio) instanceof Portero) {
-
-                                    }
+                                    general.get(espacio).setNombre(nombre);
+                                    general.get(espacio).setApellido(apellido);
+                                    general.get(espacio).setEdad(edad);
+                                    general.get(espacio).setPais(pais);
 
                                 }
                                 break;
@@ -239,6 +217,17 @@ public class Lab3_LeonardoBorjas {
 
                                     if (equipo.get(n).getJugadores().size() < 11) {
                                         System.out.println("no hay suficientes jugadores");
+                                    } else {
+                                        System.out.println("Cuantos delanteros quiere agregrar");
+                                        int delantero = sc.nextInt();
+                                        System.out.println("Cuantos medios quiere agregrar");
+                                        int medio = sc.nextInt();
+                                        System.out.println("Cuantos defensas quiere agregrar");
+                                        int defensa = sc.nextInt();
+                                        System.out.println("Cual portero quiere agregrar");
+                                        
+                                        
+                                        
                                     }
                                 }
                                 break;
@@ -255,6 +244,7 @@ public class Lab3_LeonardoBorjas {
                             case 4:
                                 for (Equipo t : equipo) {
                                     System.out.println("Equipo " + equipo.indexOf(t) + " " + t);
+                                    System.out.println("");
                                     for (int i = 0; i < t.getJugadores().size(); i++) {
                                         System.out.println(t.getJugadores().get(i));
                                     }
@@ -304,11 +294,18 @@ public class Lab3_LeonardoBorjas {
                     int resp2 = sc.nextInt();
                     if (resp < equipo.size() && resp2 < general.size()) {
 
-                        equipo.get(resp).getJugadores().add(general.get(resp2));
-                        general.get(resp2).setNumero(numero);
-                        numero++;
-                        equipo.get(resp).setPresupuesto(equipo.get(resp).getPresupuesto() - general.get(resp2).getPrecio());
-
+                        
+                        if (equipo.get(resp).getPresupuesto() < general.get(resp2).getPrecio()) {
+                            System.out.println("No hay presupuesto");
+                        } else {
+                            equipo.get(resp).setPresupuesto(equipo.get(resp).getPresupuesto() - general.get(resp2).getPrecio());
+                            equipo.get(resp).getJugadores().add(general.get(resp2));
+                            general.get(resp2).setNumero(numero);
+                            numero++;
+                            general.get(resp2).setEstado(Boolean.TRUE);
+                            
+                        }
+                        
                     }
                     break;
                 case 4:
